@@ -1,0 +1,16 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: with custom validations</h2>
+
+  <div class="ui info message">
+    The product name is: {{productName}}
+  </div>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="ui form" [class.error]="!myForm.valid && myForm.touched">
+
+    <label for="productNameInput">Product Name</label>
+    <input type="text" id="productNameInput" placeholder="Product Name" [formControl]="myForm.get('productName')" [(ngModel)]="productName">
+
+    <div *ngIf="!myForm.valid" class="ui error message">Form is invalid</div>
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
